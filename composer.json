@@ -76,13 +76,13 @@
       "npm run lint"
     ],
     "lint:fix": [
-      "vendor/bin/rector --no-ansi",
+      "vendor/bin/rector --no-ansi --no-diffs",
       "vendor/bin/pint --no-ansi --parallel",
       "npm run lint:fix"
     ],
     "lint:staged": "vendor/bin/pint --no-ansi --dirty --test --parallel",
     "lint:staged-fix": "vendor/bin/pint --no-ansi --dirty --parallel",
-    "refactor": "vendor/bin/rector --dry-run",
+    "refactor": "vendor/bin/rector --dry-run --no-diffs",
     "refactor:fix": "vendor/bin/rector --no-ansi"
   },
   "extra": {

@@ -23,7 +23,7 @@ pre-commit:
         piped: true
         jobs:
           - name: 'Refactor Code using Rector'
-            run: vendor/bin/rector --no-ansi --clear-cache -- {staged_files}
+            run: vendor/bin/rector --no-ansi --clear-cache --no-diffs -- {staged_files}
           - name: 'Fix Coding Style using Pint'
             run: vendor/bin/pint --no-ansi --dirty --parallel {staged_files}
       stage_fixed: true
