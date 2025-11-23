@@ -1,1 +1,5 @@
-# Laravel DevKit
+# Laravel Dev Kit
+
+## Todo
+
+- [ ] Update README
