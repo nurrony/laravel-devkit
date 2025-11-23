@@ -1,0 +1,18 @@
+{
+  "recommendations": [
+    "PlusTimeIT.php-file-refactoring",
+    "xdebug.php-debug",
+    "MehediDracula.php-namespace-resolver",
+    "phiter.phpstorm-snippets",
+    "bmewburn.vscode-intelephense-client",
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "laravel.vscode-laravel",
+    "EditorConfig.EditorConfig",
+    "st-pham.php-refactor-tool",
+    "MrChetan.phpstorm-parameter-hints-in-vscode",
+    "SonarSource.sonarlint-vscode",
+    "open-southeners.laravel-pint",
+    "IHunte.laravel-blade-wrapper"
+  ]
+}

@@ -1,0 +1,64 @@
+pre-commit:
+  parallel: true
+  jobs:
+    - name: 'Check Git Branch Naming Convention'
+      run: php .lefthook/check_branch.php
+      fail_text: '🚫 Invalid branch name. Must follow GitFlow naming: feature/* bugfix/* hotfix/* release/* develop master'
+
+    - name: 'Check for PHP Debug Statements'
+      glob: '*.php'
+      exclude:
+        - 'vendor/**'
+        - 'node_modules/**'
+        - '.lefthook/*.php'
+      run: php .lefthook/check_debug.php {staged_files}
+      fail_text: '🚫 Debug functions (dd, dump, var_dump, print_r) are NOT allowed in commits!'
+
+    - name: 'Check PHP Coding Style'
+      glob: '*.php'
+      exclude:
+        - '*.blade.php'
+        - 'vendor/**/*'
+      group:
+        piped: true
+        jobs:
+          - name: 'Refactor Code using Rector'
+            run: vendor/bin/rector --no-ansi --clear-cache -- {staged_files}
+          - name: 'Fix Coding Style using Pint'
+            run: vendor/bin/pint --no-ansi --dirty --parallel {staged_files}
+      stage_fixed: true
+
+    - name: 'Fix JS,Blade,Vue Conding Style'
+      glob: '*.{js,mjs,jsx,ts,tsx,vue,blade.php,css,scss,html}'
+      exclude:
+        - 'node_modules/**'
+      run: npx prettier --write {staged_files}
+      stage_fixed: true
+
+# Build commit messages
+prepare-commit-msg:
+  jobs:
+    - name: 'Prepare Conventional Commit Message'
+      interactive: true
+      env:
+        LEFTHOOK: '0'
+      skip:
+        - merge
+        - rebase
+      run: |
+        npx cz --hook
+
+# Validate commit messages
+commit-msg:
+  jobs:
+    - name: 'Lint Commit Message'
+      skip:
+        - merge
+        - rebase
+      run: npx commitlint --edit {1}
+
+output:
+  - summary
+  - success
+  - failure
+  - execution_out
