@@ -4,6 +4,10 @@
   "rules": {
     "array_push": true,
     "backtick_to_shell_exec": true,
+    "combine_consecutive_unsets": true,
+    "concat_space": {
+      "spacing": "one"
+    },
     "date_time_immutable": true,
     "declare_strict_types": true,
     "final_class": true,
@@ -15,14 +19,18 @@
       "import_constants": true,
       "import_functions": true
     },
+    "lambda_not_used_import": true,
+    "logical_operators": true,
     "lowercase_keywords": true,
     "lowercase_static_reference": true,
     "mb_str_functions": true,
+    "method_chaining_indentation": true,
     "modernize_types_casting": true,
     "new_with_parentheses": false,
     "no_multiple_statements_per_line": true,
     "no_superfluous_elseif": true,
     "no_useless_else": true,
+    "nullable_type_declaration": true,
     "ordered_class_elements": {
       "order": [
         "use_trait",

@@ -36,7 +36,7 @@ final class LinkDelete extends Command
             return 1;
         }
 
-        if ($this->confirm('Are you sure you want to delete this link? '.$link->url)) {
+        if ($this->confirm('Are you sure you want to delete this link? ' . $link->url)) {
             $link->delete();
             $this->info('Link deleted.');
         }

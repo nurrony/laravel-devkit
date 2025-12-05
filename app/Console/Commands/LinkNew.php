@@ -38,7 +38,7 @@ final class LinkNew extends Command
         $description = $this->ask('Link Description:');
 
         $this->info('New Link:');
-        $this->info($url.' - '.$description);
+        $this->info($url . ' - ' . $description);
 
         if ($this->confirm('Is this information correct?')) {
             $link = new Link;
