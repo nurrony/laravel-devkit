@@ -17,6 +17,7 @@ return new class extends Migration
             $blueprint->id();
             $blueprint->string('title');
             $blueprint->text('description')->nullable();
+            // Tips: 1: Set Default DB Column Values in Eloquent Model
             $blueprint->boolean('is_completed')->default(false);
             $blueprint->timestamps();
         });

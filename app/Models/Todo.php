@@ -23,4 +23,13 @@ final class Todo extends Model
         'description',
         'is_completed',
     ];
+
+    /**
+     * Tips: 1: Set Default DB Column Values in Eloquent Model
+     *
+     * @var list<string>
+     */
+    protected $attributes = [
+        'is_completed' => false,
+    ];
 }
