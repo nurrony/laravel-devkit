@@ -15,7 +15,7 @@ final class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->bind(ITodoRepository::class, TodoRepository::class);
+        $this->app->singleton(ITodoRepository::class, TodoRepository::class);
     }
 
     /**

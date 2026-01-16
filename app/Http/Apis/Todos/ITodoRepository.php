@@ -12,9 +12,9 @@ interface ITodoRepository
 
     public function find($id): Todo;
 
-    public function create(Todo $data): Todo;
+    public function create(Todo $todo): Todo;
 
-    public function update($id, Todo $data): Todo;
+    public function update($id, Todo $todo): Todo;
 
     public function delete($id): void;
 

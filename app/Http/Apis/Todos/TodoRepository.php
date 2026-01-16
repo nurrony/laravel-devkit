@@ -18,9 +18,9 @@ final class TodoRepository implements ITodoRepository
         return Todo::query()->findOrFail($id);
     }
 
-    public function create(Todo $data): Todo
+    public function create(Todo $todo): Todo
     {
-        return Todo::query()->create($data->getAttributes());
+        return Todo::query()->create($todo->getAttributes());
     }
 
     public function update($id, Todo $data): Todo

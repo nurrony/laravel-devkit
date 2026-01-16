@@ -13,19 +13,19 @@ final readonly class TodoService
         // Silence is golden
     }
 
-    public function getTodos()
+    public function getTodos(): mixed
     {
         return $this->todoRepository->all();
     }
 
-    public function createTodo(Todo $data)
+    public function createTodo(Todo $todo): Todo
     {
-        return $this->todoRepository->create($data);
+        return $this->todoRepository->create($todo);
     }
 
-    public function updateTodo($id, Todo $data)
+    public function updateTodo($id, Todo $todo): Todo
     {
-        return $this->todoRepository->update($id, $data);
+        return $this->todoRepository->update($id, $todo);
     }
 
     public function deleteTodo($id): void
