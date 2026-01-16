@@ -10,7 +10,7 @@ final class PaypalPaymentGateway implements PaymentGatewayInterface
 {
     public function charge(float $amount, array $paymentDetails): bool
     {
-        Log::info("PaypalPaymentGateway -> charging -> $amount");
+        Log::info('PaypalPaymentGateway -> charging -> ' . $amount);
 
         return true;
     }

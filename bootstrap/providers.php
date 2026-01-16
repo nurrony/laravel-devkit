@@ -2,7 +2,10 @@
 
 declare(strict_types=1);
 
+use App\Providers\AppServiceProvider;
+use App\Providers\PaymentGatewayProvider;
+
 return [
-    App\Providers\AppServiceProvider::class,
-    App\Providers\PaymentGatewayProvider::class,
+    AppServiceProvider::class,
+    PaymentGatewayProvider::class,
 ];

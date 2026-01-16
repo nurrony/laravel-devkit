@@ -19,13 +19,13 @@ final class PaymentGatewayProvider extends ServiceProvider
     public function register(): void
     {
         Log::info('calling PaymentGatewayProvider');
-        $this->app->bind(PaymentGatewayInterface::class, function ($app) {
+        $this->app->bind(function ($app): PaymentGatewayInterface {
             $gateway = config('payment.default_gateway');
 
             return match ($gateway) {
                 'stripe' => new StripePaymentGateway(),
                 'paypal' => new PaypalPaymentGateway(),
-                default => throw new Exception("Unsupported gateway: {$gateway}")
+                default => throw new Exception('Unsupported gateway: ' . $gateway)
             };
         });
     }

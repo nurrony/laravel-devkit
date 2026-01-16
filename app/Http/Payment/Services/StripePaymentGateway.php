@@ -10,7 +10,7 @@ final class StripePaymentGateway implements PaymentGatewayInterface
 {
     public function charge(float $amount, array $paymentDetails): bool
     {
-        Log::info("StripePaymentGateway -> charging -> $amount");
+        Log::info('StripePaymentGateway -> charging -> ' . $amount);
 
         return true;
     }
