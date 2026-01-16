@@ -321,3 +321,4 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+.composer

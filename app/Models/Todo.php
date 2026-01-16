@@ -20,6 +20,7 @@ final class Todo extends Model
      */
     protected $fillable = [
         'title',
+        'due_at',
         'description',
         'is_completed',
     ];
@@ -31,5 +32,9 @@ final class Todo extends Model
      */
     protected $attributes = [
         'is_completed' => false,
+    ];
+
+    protected $casts = [
+        'due_at' => 'datetime:Y-m-d H:i',
     ];
 }
